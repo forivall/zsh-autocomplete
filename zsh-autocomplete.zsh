@@ -457,7 +457,7 @@ _autocomplete.list-choices.completion-widget() {
 
   if [[ -v 1 ]] && (( $1 == 0 ))
   then
-    _autocomplete.warning 'No matching completions found.'
+    _autocomplete.warning '' # 'No matching completions found.'
   elif [[ -v 2 ]] && (( ($2 + BUFFERLINES + 1) > max_lines ))
   then
     local warning='Too many completions to fit on screen. Press '
@@ -468,7 +468,7 @@ _autocomplete.list-choices.completion-widget() {
       warning+='Ctrl-Space'
     fi
     warning+=' to open the menu or type more to filter.'
-    _autocomplete.warning $warning
+    _autocomplete.warning '...' # $warning
   else
     _autocomplete._main_complete list-choices
   fi
